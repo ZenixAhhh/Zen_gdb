@@ -1,0 +1,32 @@
+# Build directories
+build/
+bin/
+out/
+.cache/
+
+# Visual Studio / MSVC artifacts
+.vs/
+*.obj
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.suo
+*.user
+*.userosv
+*.sln.docstates
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# CMake
+CMakeSettings.json
+CMakeUserPresets.json
+CMakeFiles/
+CMakeCache.txt
