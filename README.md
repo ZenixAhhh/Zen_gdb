@@ -43,16 +43,15 @@ Zen_gdb/
 
 ---
 
-## Roadmap
+## Update Timeline
 
-- [x] **Week 1: Core Engine & Process Control**
-  - Process spawn/attach, Win32 event loop, register context manager, interactive CLI shell.
-- [ ] **Week 2: Disassembly & Software Breakpoints**
-  - Zydis x86_64 disassembler integration, `0xCC` / `INT 3` software breakpoints with automatic `RIP -= 1` rewind.
-- [ ] **Week 3: Hardware Breakpoints & Memory Inspection**
-  - `DR0`–`DR3` address watchpoints, `DR7` control configuration, virtual memory hexdump/search.
-- [ ] **Week 4: Anti-Anti-Debugging & Payload Unpacking**
-  - Automated PEB spoofing (`BeingDebugged = 0`, `NtGlobalFlag = 0`), RWX heap payload extractor (`dump <addr> <size>`).
+### v0.1.0 - Core Engine & Win32 Debug Subsystem
+- **Process Lifecycle Management:** Process launching with `DEBUG_ONLY_THIS_PROCESS` and PID attachment via `DebugActiveProcess`.
+- **Event Dispatch Loop:** Win32 debug event handling for process, thread, module loading, and exception trapping.
+- **Context & Registers:** Full x86_64 general-purpose register extraction (`RAX`–`R15`, `RIP`, `RSP`, `RBP`) and bitmask decoding for CPU status flags (`CF`, `ZF`, `SF`, `OF`, `TF`, etc.).
+- **Execution Flow Control:** Single-step instruction stepping via CPU Trap Flag (`TF`) manipulation.
+- **Interactive Shell:** Responsive breakpoint console supporting execution resume, stepping, register dumps, and clean termination.
+- **Test Harness:** Included synthetic target binary (`dummy_target`) to validate anti-debugging detection and memory loop execution.
 
 ---
 
